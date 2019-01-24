@@ -1,0 +1,9 @@
+Enter the number of terms you want to calculate: Enter the number of threads you want to use: Computing serially
+Ans: 0.785398
+Time Taken: 9282325
+Using Threads
+Ans: 0.785398
+Time Taken: 3280896
+Using async
+Ans: 0.785398
+Time Taken: 3264543
