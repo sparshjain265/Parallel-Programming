@@ -1,1 +1,1 @@
-This is the repository for Parallel Programming Class
+Repository to practice Parallel Programming
