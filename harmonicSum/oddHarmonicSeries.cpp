@@ -103,8 +103,10 @@ int main()
 	cout<<"Enter the number of terms you want to calculate: ";
 	cin>>N;
 	cout<<endl;
-	cout<<"Enter the number of threads you want to use: ";
-	cin>>p;
+	// cout<<"Enter the number of threads you want to use: ";
+	// cin>>p;
+	p = thread::hardware_concurrency();
+	cout<<"Number of Threads used: "<<p<<endl;
 	cout<<endl;
 
 	useNoThreads(N);
