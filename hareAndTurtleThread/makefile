@@ -6,6 +6,9 @@ all:	main.o
 clean:	
 		rm *.o
 
+run:	all
+		./main.o
+
 test:	all test1 test2 test3
 
 test1:	all

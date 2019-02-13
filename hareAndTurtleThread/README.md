@@ -23,7 +23,12 @@ In that case, He replaces hare and turtle to the corresponding position
 * Requires support for thread library (compile using -lpthread option)
 * Requires support for C++17 Standard Library (compile using -std=c++17 option : available from g++ 8.0)
 
-## Test Cases
+## To Run
+```
+make run
+```
+
+## Automated Test Cases
 There are 3 test cases:
 
 * test1 : let the race go by itself
