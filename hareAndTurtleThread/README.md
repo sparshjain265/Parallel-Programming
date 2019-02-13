@@ -21,9 +21,10 @@ In that case, He replaces hare and turtle to the corresponding position
 
 ## Test Cases
 There are 3 test cases:
-test1 : let the race go by itself
-test2 : after 3 seconds, replace 10 10, after 10 seconds, replace 10 100
-test3 : replace 5 5, 5 10, 5 20, 5 40, 100 200 ever 2 seconds, replace 200 400 after 5 seconds
+
+* test1 : let the race go by itself
+* test2 : after 3 seconds, replace 10 10, after 10 seconds, replace 10 100
+* test3 : replace 5 5, 5 10, 5 20, 5 40, 100 200 ever 2 seconds, replace 200 400 after 5 seconds
 
 To simulate all 3 test cases
 ```
