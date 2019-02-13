@@ -21,7 +21,7 @@ In that case, He replaces hare and turtle to the corresponding position
 
 ## Prerequisites
 * Requires support for thread library (compile using -lpthread option)
-* Requires support for C++17 Standard Library (compile using -std=c++17 option)
+* Requires support for C++17 Standard Library (compile using -std=c++17 option : available from g++ 8.0)
 
 ## Test Cases
 There are 3 test cases:
