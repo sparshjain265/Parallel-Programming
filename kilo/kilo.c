@@ -333,6 +333,10 @@ void editorScroll()
 	{
 		E.rx = editorRowCxToRx(&E.row[E.cy], E.cx);
 	}
+	if (E.cy < E.rowoff)
+	{
+		E.rowoff = E.cy;
+	}
 	if (E.cy >= E.rowoff + E.screenrows)
 	{
 		E.rowoff = E.cy - E.screenrows + 1;
