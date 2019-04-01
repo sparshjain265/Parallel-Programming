@@ -3,3 +3,6 @@ kilo: kilo.c
 
 test: kilo
 	./kilo
+
+clean:	
+	rm -rf kilo
