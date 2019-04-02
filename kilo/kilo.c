@@ -70,6 +70,7 @@ struct editorConfig
 
 void editorSetStatusMessage(const char *fmt, ...);
 void editorRefreshScreen();
+char *editorPrompt(char *prompt);
 
 // terminal
 
@@ -438,7 +439,15 @@ void editorOpen(char *filename)
 void editorSave()
 {
 	if (E.filename == NULL)
-		return;
+	{
+		E.filename = editorPrompt("Save as: %s (ESC to cancel)");
+		if (E.filename == NULL)
+		{
+			editorSetStatusMessage("Save aborted");
+			return;
+		}
+	}
+
 	int len;
 	char *buf = editorRowsToString(&len);
 	int fd = open(E.filename, O_RDWR | O_CREAT, 0644);
@@ -648,7 +657,13 @@ char *editorPrompt(char *prompt)
 		editorSetStatusMessage(prompt, buf);
 		editorRefreshScreen();
 		int c = editorReadKey();
-		if (c == '\r')
+		if (c == '\x1b')
+		{
+			editorSetStatusMessage("");
+			free(buf);
+			return NULL;
+		}
+		else if (c == '\r')
 		{
 			if (buflen != 0)
 			{
