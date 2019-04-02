@@ -353,6 +353,7 @@ void editorOpen(char *filename)
 	}
 	free(line);
 	fclose(fp);
+	E.dirty = 0;
 }
 
 void editorSave()
@@ -370,6 +371,7 @@ void editorSave()
 			{
 				close(fd);
 				free(buf);
+				E.dirty = 0;
 				editorSetStatusMessage("%d bytes written to disk", len);
 				return;
 			}
@@ -378,6 +380,7 @@ void editorSave()
 	}
 	free(buf);
 	editorSetStatusMessage("Can't save! I/O error: %s", strerror(errno));
+
 }
 
 // append buffer
