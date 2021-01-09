@@ -18,7 +18,7 @@
 
 // defines
 
-#define KILO_VERSION "0.0.1"
+#define KILO_VERSION "1.2.1"
 #define KILO_TAB_STOP 4
 #define KILO_QUIT_TIMES 3
 
@@ -94,6 +94,9 @@ struct editorConfig
 	struct editorSyntax *syntax;
 	struct termios orig_termios;
 } E;
+
+FILE *logFile;
+clock_t start;
 
 // filetypes
 
@@ -1012,6 +1015,8 @@ void editorRefreshScreen()
 
 	write(STDOUT_FILENO, ab.b, ab.len);
 	abFree(&ab);
+
+	fprintf(logFile, "Refreshed at %lf\n", ((double)(clock() - start))/CLOCKS_PER_SEC);
 }
 
 void editorSetStatusMessage(const char *fmt, ...)
@@ -1236,6 +1241,8 @@ void initEditor()
 
 int main(int argc, char *argv[])
 {
+	start = clock();
+	logFile = fopen("log.txt", "w");
 	enableRawMode();
 	initEditor();
 	if (argc >= 2)
